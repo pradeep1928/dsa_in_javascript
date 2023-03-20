@@ -1,5 +1,11 @@
 
 
+/**
+ * Bubble sort algorithm.
+ * If the current element is greater than the next element, swap them.
+ * @param arr - The array to sort.
+ * Big-O = O(n*2)
+ */
 function bubbleSort(arr) {
     let swapped 
     do {
