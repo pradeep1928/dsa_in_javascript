@@ -1,6 +1,7 @@
 
 
 /**
+ * Sort an array in ascending  order.
  * Bubble sort algorithm.
  * If the current element is greater than the next element, swap them.
  * @param arr - The array to sort.
