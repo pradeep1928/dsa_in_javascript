@@ -1,7 +1,7 @@
 
 
 /**
-* Sort an array in ascending  order.
+ * Sort an array in ascending  order.
  * Quick Sort Algorithm.
  * If the array is less than 2, return the array, otherwise, set the pivot to the last element in the
  * array, create two empty arrays, loop through the array and push the elements to the left array if
@@ -9,7 +9,7 @@
  * the pivot, and the right array.
  * @param arr - the array to be sorted
  * @returns sorted array such as: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
- * Big-O 
+ * Big - O 
    Worst case: O(n*2) - when array is already sorted.
    Average case: O(nlogn)
  */
