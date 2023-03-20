@@ -1,5 +1,6 @@
 
 /**
+ * Linear Search Algorithm.
  * For each element in the array, check if it is the target. If it is, return the index. If not, return
  * -1.
  * @param arr - the array to search through
