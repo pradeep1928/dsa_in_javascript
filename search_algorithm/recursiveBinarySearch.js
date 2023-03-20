@@ -1,6 +1,4 @@
 
-
-
 /**
  * Recursive Binary Search Algorithm.
  * Given array should be sorted.
@@ -9,6 +7,7 @@
  * @param arr - the array to search
  * @param target - the value we're searching for
  * @returns The index of the target value in the array.
+ *  * Big-O = O(log n)
  */
 function recursiveBinarySearch(arr, target) {
     return search(arr, target, 0, arr.length -1) 
