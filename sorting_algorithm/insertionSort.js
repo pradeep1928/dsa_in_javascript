@@ -6,7 +6,7 @@
  * For each element in the array, starting with the second element, compare it to the element before it
  * and swap them if the element before it is greater than the element after it.
  * @param arr - the array to sort
- * Big-O = O(n*2)
+ * Big-O = O(n^2)
  */
 function insertionSort(arr) {
     for (let i = 1; i < arr.length; i++) {

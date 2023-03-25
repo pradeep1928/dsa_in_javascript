@@ -10,7 +10,7 @@
  * @param arr - the array to be sorted
  * @returns sorted array such as: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
  * Big - O 
-   Worst case: O(n*2) - when array is already sorted.
+   Worst case: O(n^2) - when array is already sorted.
    Average case: O(nlogn)
  */
 function quickSort(arr) {

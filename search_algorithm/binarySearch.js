@@ -8,7 +8,7 @@
  * @param arr - the array we're searching through
  * @param target - the value we're looking for
  * @returns The index of the target value in the array.
- * Big-O = O(log n)
+ * Big-O = O(logn)
  */
 function binarySearch(arr, target) {
     let leftIndex = 0;
