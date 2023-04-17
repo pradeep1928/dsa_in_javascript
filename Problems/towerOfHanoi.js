@@ -12,6 +12,7 @@
  * @returns There is no return value specified in the code, so the function will return `undefined` by
  * default. However, the function is designed to print out the steps to solve the Tower of Hanoi
  * problem.
+ * Big-O = O(2^n)
  */
 let count = 0;
 function towerOfHanoi (n, fromRod, toRod, usingRod) {
