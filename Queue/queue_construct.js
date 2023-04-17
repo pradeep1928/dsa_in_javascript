@@ -1,6 +1,8 @@
-/* The class Queue represents a data structure that follows the First-In-First-Out (FIFO) principle and
+/* The class Queue1 represents a data structure that follows the First-In-First-Out (FIFO) principle and
 provides methods to manipulate and access its elements. */
-class Queue {
+/* The class Queue1 implements a queue data structure with methods for enqueue, dequeue, isEmpty, peak,
+size, and print. */
+class Queue1 {
     constructor() {
         this.items = [];
     }
@@ -9,7 +11,7 @@ class Queue {
         this.items.push(element);
     }
 
-    dequeue(element) {
+    dequeue() {
         return this.items.shift();
     }
 
@@ -36,7 +38,7 @@ class Queue {
 /* `let queue = new Queue();` is creating a new instance of the `Queue` class and assigning it to the
 variable `queue`. This allows us to use the methods and properties of the `Queue` class on this
 specific instance of the queue. */
-let queue = new Queue();
+let queue = new Queue1();
 
 /* `console.log("is queue empty 1 --> ", queue.isEmpty());` is calling the `isEmpty()` method of the
 `Queue` class on the `queue` instance and printing the result to the console. It will print "is
