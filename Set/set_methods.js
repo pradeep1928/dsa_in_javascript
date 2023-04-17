@@ -2,7 +2,7 @@
 /* `let set = new Set([1, 2, 3, 'hello', true])` is creating a new Set object with the values 1, 2, 3,
 'hello', and true. The Set object is a collection of unique values, meaning that duplicates are not
 allowed. */
-let set = new Set([1, 2, 3, 'hello', true])
+let set = new Set([1, 2, 3, 'hello', true])  // using Set constructor.
 
 /* `set.add('world')` is adding the value `'world'` to the Set object `set`. Since Sets only allow
 unique values, if `'world'` already exists in the Set, it will not be added again. */
