@@ -54,6 +54,11 @@ on the `stack` instance and printing the result to the console along with the st
 --> ". The `size()` method returns the number of elements in the stack. */
 console.log("size of stack --> ",stack.size())
 
+/* `stack.print()` is calling the `print()` method of the `Stack` class on the `stack` instance and
+printing the elements of the stack to the console as a comma-separated string. The `print()` method
+is used to display the elements of the stack in a readable format. */
+stack.print();
+
 /* `console.log('removing item from stack --> ', stack.pop());` is calling the `pop()` method of the
 `Stack` class on the `stack` instance and printing the removed element to the console along with the
 string "removing item from stack --> ". The `pop()` method removes and returns the top element of
