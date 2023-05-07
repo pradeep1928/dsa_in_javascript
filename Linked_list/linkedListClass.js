@@ -7,8 +7,8 @@ class Node {
     }
 }
 
-/* The class LinkedList represents a linked list data structure with methods to check if it's empty and
-get its size. */
+/* This is a class for a singly linked list data structure with methods for checking if it's empty,
+getting its size, and adding a new node to the beginning of the list. */
 class LinkedList {
     constructor() {
         this.head = null,
@@ -22,6 +22,18 @@ class LinkedList {
     getSize() {
         return this.size;
     }
+
+    prepend(value) {
+        const node = new Node(value);
+        console.log('node', node);
+        if (this.isEmpty()) {
+            this.head = node;
+        } else {
+            node.next = this.head;
+            node.head = node;
+        }
+        this.size++;
+    }
 }
 
 
@@ -32,3 +44,11 @@ console. The `isEmpty()` method checks if the linked list is empty and returns a
 let list = new LinkedList();
 console.log('is list empty? ', list.isEmpty());
 console.log('list size: ', list.getSize());
+
+/* `list.prepend(10)` is adding a new node with a value of 10 to the beginning of the linked list. It
+creates a new instance of the `Node` class with a value of 10 and sets its `next` property to the
+current head of the linked list. If the linked list is empty, it sets the new node as the head.
+Finally, it increments the `size` property of the linked list. */
+list.prepend(10);
+list.prepend(20);
+list.prepend(30);
