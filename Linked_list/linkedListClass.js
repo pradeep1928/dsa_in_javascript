@@ -34,6 +34,20 @@ class LinkedList {
         this.size++;
     }
 
+    append(value) {
+        const node = new NodeOfList(value);
+        if (this.isEmpty()) {
+            this.head = node;
+        } else {
+            let prev = this.head;
+            while(prev.next) {
+                prev = prev.next;
+            }
+            prev.next = node;
+        }
+        this.size++
+    } 
+
     print() {
         if (this.isEmpty()) {
         } else {
@@ -73,5 +87,15 @@ list.print()
 
 list.prepend(20);
 list.prepend(30);
+
+list.print()
+
+/* `list.append(5)` is adding a new node with a value of 5 to the end of the linked list. It creates a
+new instance of the `Node` class with a value of 5 and sets its `next` property to `null`. If the
+linked list is empty, it sets the new node as the head. Otherwise, it iterates through the linked
+list until it reaches the last node and sets the `next` property of that node to the new node.
+Finally, it increments the `size` property of the linked list. */
+list.append(5);
+list.append(1)
 
 list.print()
