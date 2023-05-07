@@ -1,6 +1,6 @@
 
 /* The class defines a Node with a value and a reference to the next Node. */
-class Node {
+class NodeOfList {
     constructor(value) {
         this.value = value,
         this.next = null
@@ -24,15 +24,27 @@ class LinkedList {
     }
 
     prepend(value) {
-        const node = new Node(value);
-        console.log('node', node);
+        const node = new NodeOfList(value);
         if (this.isEmpty()) {
             this.head = node;
         } else {
             node.next = this.head;
-            node.head = node;
+            this.head = node;
         }
         this.size++;
+    }
+
+    print() {
+        if (this.isEmpty()) {
+        } else {
+            let curr = this.head;
+            let listValues = '';
+            while(curr) {
+                listValues += `${curr.value} `;
+                curr = curr.next
+            }
+            console.log(listValues);
+        }
     }
 }
 
@@ -45,10 +57,21 @@ let list = new LinkedList();
 console.log('is list empty? ', list.isEmpty());
 console.log('list size: ', list.getSize());
 
+/* `list.print()` is a method of the `LinkedList` class that prints the values of all nodes in the
+linked list to the console. It first checks if the linked list is empty, and if not, it iterates
+through each node in the list and appends its value to a string. Finally, it logs the string of node
+values to the console. */
+list.print()
+
 /* `list.prepend(10)` is adding a new node with a value of 10 to the beginning of the linked list. It
 creates a new instance of the `Node` class with a value of 10 and sets its `next` property to the
 current head of the linked list. If the linked list is empty, it sets the new node as the head.
 Finally, it increments the `size` property of the linked list. */
 list.prepend(10);
+
+list.print()
+
 list.prepend(20);
 list.prepend(30);
+
+list.print()
