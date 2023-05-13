@@ -23,6 +23,7 @@ class LinkedList {
         return this.size;
     }
 
+    // Big-O --> O(1)
     prepend(value) {
         const node = new NodeOfList(value);
         if (this.isEmpty()) {
@@ -34,6 +35,7 @@ class LinkedList {
         this.size++;
     }
 
+    // Big-O --> O(n)
     append(value) {
         const node = new NodeOfList(value);
         if (this.isEmpty()) {
@@ -47,6 +49,45 @@ class LinkedList {
         }
         this.size++
     } 
+
+    insert(value, index) {
+        if (index < 0 || index > this.size) {
+            console.log('invalid index.');
+            return 
+        } 
+        if (index === 0) {
+            this.prepend(value) 
+        } else {
+            const node = new NodeOfList(value);
+            let prev = this.head
+            for (let i = 0; i < index - 1; i++) {
+                prev =  prev.next;
+            }
+            node.next = prev.next;
+            prev.next = node;
+            this.size++
+        }
+    }
+
+    removeFrom(index) {
+        if (index < 0 || index > this.size) {
+            return null
+        } 
+        let removeNode 
+        if (index === 0) {
+            removeNode = this.head;
+            this.head = this.head.next;
+        } else {
+            let prev = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next
+            }
+            removeNode = prev.next;
+            prev.next = removeNode.next;
+        }
+        this.size--
+        return removeNode.value;
+    }
 
     print() {
         if (this.isEmpty()) {
@@ -88,7 +129,26 @@ list.print()
 list.prepend(20);
 list.prepend(30);
 
+/* `list.insert(40, 0)` is inserting a new node with a value of 40 at the beginning of the linked list.
+It calls the `insert()` method of the `LinkedList` class and passes in the value `40` and the index
+`0`. The `insert()` method first checks if the index is valid (not negative and not greater than the
+size of the linked list). Since the index is `0`, it calls the `prepend()` method to add the new
+node to the beginning of the linked list. The `prepend()` method creates a new instance of the
+`Node` class with a value of `40` and sets its `next` property to the current head of the linked
+list. If the linked list is empty, it sets the new node as the head. Finally, it increments the
+`size` property of the linked list. */
+list.insert(40, 3)
+list.insert(60, 4)
+
 list.print()
+
+/* `console.log(list.removeFrom(4))` is calling the `removeFrom()` method of the `LinkedList` class on
+the `list` object and passing in the index `4`. This method removes the node at the specified index
+from the linked list and returns its value. The returned value is then logged to the console using
+`console.log()`. */
+console.log(list.removeFrom(4))
+console.log(list.removeFrom(10))
+console.log(list.removeFrom(0))
 
 /* `list.append(5)` is adding a new node with a value of 5 to the end of the linked list. It creates a
 new instance of the `Node` class with a value of 5 and sets its `next` property to `null`. If the
