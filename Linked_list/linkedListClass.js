@@ -66,6 +66,8 @@ class LinkedList {
             node.next = prev.next;
             prev.next = node;
             this.size++
+            console.log("prev: ", prev);
+            console.log("node: ", node);
         }
     }
 
@@ -87,6 +89,29 @@ class LinkedList {
         }
         this.size--
         return removeNode.value;
+    }
+
+    removeValue(value) {
+        if (this.isEmpty()) {
+            return null;
+        }
+        if (this.head.value == value) {
+            this.head = this.head.next;
+            this.size--;
+            return value;
+        } else {
+            let prev = this.head;
+            while (prev.next && prev.next.value !== value) {
+                prev = prev.next
+            } 
+            if (prev.next) {
+                let removeNode = prev.next
+                prev.next = removeNode.next;
+                this.size--;
+                return value;
+            }
+            return null
+        }
     }
 
     print() {
@@ -157,5 +182,15 @@ list until it reaches the last node and sets the `next` property of that node to
 Finally, it increments the `size` property of the linked list. */
 list.append(5);
 list.append(1)
+
+/* `console.log(list.removeValue(11));` is calling the `removeValue()` method of the `LinkedList` class
+on the `list` object and passing in the value `11`. This method removes the first node in the linked
+list that has a value equal to the specified value and returns its value. If no node with the
+specified value is found, it returns `null`. The returned value is then logged to the console using
+`console.log()`. */
+console.log(list.removeValue(11));
+console.log(list.removeValue(5));
+console.log(list.removeValue(20));
+
 
 list.print()
