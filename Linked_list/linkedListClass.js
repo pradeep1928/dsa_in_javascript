@@ -114,6 +114,34 @@ class LinkedList {
         }
     }
 
+    search(value) {
+        if (this.isEmpty()) {
+            return -1
+        }
+        let i = 0;
+        let curr = this.head;
+        while(curr) {
+            if (curr.value == value) {
+                return i;
+            }
+            curr = curr.next;
+            i++
+        }
+        return -1;
+    }
+
+    reverse() {
+        let prev = null;
+        let curr = this.head;
+        while(curr) {
+            let next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
+    }
+
     print() {
         if (this.isEmpty()) {
         } else {
@@ -192,5 +220,17 @@ console.log(list.removeValue(11));
 console.log(list.removeValue(5));
 console.log(list.removeValue(20));
 
+list.print()
 
+/* `console.log(list.search(10));` is calling the `search()` method of the `LinkedList` class on the
+`list` object and passing in the value `10`. This method searches the linked list for the first node
+that has a value equal to the specified value and returns the index of that node. If no node with
+the specified value is found, it returns `-1`. The returned value is then logged to the console
+using `console.log()`. */
+console.log(list.search(10));
+console.log(list.search(89));
+console.log(list.search(1));
+
+list.print()
+list.reverse();
 list.print()
