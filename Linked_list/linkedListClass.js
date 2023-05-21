@@ -232,5 +232,9 @@ console.log(list.search(89));
 console.log(list.search(1));
 
 list.print()
+/* `list.reverse()` is a method of the `LinkedList` class that reverses the order of the nodes in the
+linked list. It does this by iterating through the linked list and reversing the `next` pointers of
+each node so that they point to the previous node instead of the next node. Finally, it sets the
+head of the linked list to the last node, which is now the first node after the reversal. */
 list.reverse();
 list.print()
