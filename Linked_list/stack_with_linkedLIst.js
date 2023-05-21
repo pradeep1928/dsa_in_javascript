@@ -1,8 +1,8 @@
-const linkedList_t = require("./linkedListWithTail");
+const linkedList_s = require("./linkedListWithTail");
 
 class linkedListStack {
   constructor() {
-    this.list_s = new linkedList_t();
+    this.list_s = new linkedList_s();
   }
 
   push(value) {
