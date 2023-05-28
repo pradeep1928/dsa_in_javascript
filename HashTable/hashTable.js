@@ -18,17 +18,43 @@ class HashTable {
 
     set(key, value) {
         const index = this.hash(key);
-        this.table[index] = value;
+        // this.table[index] = value;
+        const bucket = this.table[index]
+        if (!bucket) {
+            this.table[index] = [[key, value]];
+        } else {
+            const sameKeyItem = bucket.find(item => item[0] === key);
+            if (sameKeyItem) {
+                sameKeyItem[1] = value
+            } else {
+                bucket.push([key, value])
+            }
+        }
     }
 
     get(key) {
         const index = this.hash(key);
-        return this.table[index]
+        // return this.table[index]
+        const bucket = this.table[index]
+        if (bucket) {
+            const sameKeyItem = bucket.find(item => item[0] === key);
+            if (sameKeyItem) {
+                return sameKeyItem[1]
+            }
+        }
+        return undefined;
     }
 
     remove(key) {
         const index = this.hash(key);
-        this.table[index] = undefined;
+        // this.table[index] = undefined;
+        const bucket = this.table[index];
+        if (bucket) {
+            const sameKeyItem = bucket.find(item => item[0] === key) 
+                if (sameKeyItem) {
+                    bucket.splice(bucket.indexOf(sameKeyItem), 1)
+            }
+        }
     }
 
     display() {
@@ -64,10 +90,15 @@ the console using `console.log()`. In this case, the value associated with the k
 `'neel'`, so `'neel'` will be logged to the console. */
 console.log(table.get('name'));
 
-/* `table.remove('city');` is removing the key-value pair with the key `'city'` from the hash table
-`table`. It does this by setting the value at the index corresponding to the hash of the key
-`'city'` to `undefined`. */
-table.remove('city');
+table.set('mane', 'harry')
+
 table.display();
 
-console.log(table.get('city'));
+/* `table.remove('mane')` is removing the key-value pair with the key `'mane'` from the hash table
+`table`. It does this by finding the index of the slot in the hash table where the key-value pair is
+stored, and then removing the key-value pair from the array stored at that index. After this
+operation, calling `table.get('mane')` will return `undefined`, since the key `'mane'` is no longer
+present in the hash table. */
+table.remove('mane');
+
+console.log(table.get('mane'));
