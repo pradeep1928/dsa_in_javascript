@@ -115,6 +115,33 @@ class BinarySearchTree {
         }
     }
 
+    delete(value) {
+        this.root = this.deleteNode(this.root, value);
+    }
+
+    deleteNode(root, value) {
+        if (root === null) {
+            return root
+        }
+        if (value < root.value) {
+            root.left = this.deleteNode(root.left, value) 
+        } else if (value > root.value) {
+            root.right = this.deleteNode(root.right, value);
+        } else {
+            if(!root.left && !root.right) {
+                return null
+            }
+            if (!root.left) {
+                return root.right;
+            } else if (!root.right) {
+                return root.left
+            }
+            root.value = this.min(root.right);
+            root.right = this.deleteNode(root.right, root.value);
+        }
+        return root;
+    }
+
 }
 
 
@@ -135,6 +162,7 @@ bst.insert(5)
 bst.insert(15)
 bst.insert(3)
 bst.insert(7)
+bst.insert(1)
 
 
 
@@ -178,5 +206,18 @@ the traversal, it logs the value of each node to the console. */
 bst.levelOrder()
 console.log('-----levelOrder above--------------------------------');
 
+console.log('-----min-max below--------------------------------');
 console.log('minimum value: ', bst.min(bst.root));
 console.log('maximum value: ', bst.max(bst.root));
+
+console.log('-----delete below--------------------------------');
+/* `bst.delete(5)` is deleting the node with a value of 5 from the binary search tree represented by
+the `bst` object. It calls the `delete()` method of the `BinarySearchTree` class on the `bst`
+object, passing in the value 5 as an argument. The `delete()` method then calls the `deleteNode()`
+method to recursively search for and delete the node with the value of 5 from the tree. Once the
+node is found and deleted, the `delete()` method updates the `root` property of the `bst` object to
+reflect the changes made to the tree. */
+bst.delete(5);
+
+bst.levelOrder()
+
