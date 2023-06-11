@@ -11,7 +11,7 @@ class Node {
 /* The BinarySearchTree class is a data structure that allows for the insertion and searching of nodes
 in a binary tree. */
 class BinarySearchTree {
-    constructor () {
+    constructor() {
         this.root = null
     }
 
@@ -45,7 +45,7 @@ class BinarySearchTree {
     }
 
     search(root, value) {
-        if(!root) {
+        if (!root) {
             return false;
         } else {
             if (root.value === value) {
@@ -55,6 +55,30 @@ class BinarySearchTree {
             } else {
                 return this.search(root.right, value)
             }
+        }
+    }
+
+    preOrder(root) {
+        if (root) {
+            console.log(root.value);
+            this.preOrder(root.left)
+            this.preOrder(root.right)
+        }
+    }
+
+    inOrder(root) {
+        if (root) {
+            this.inOrder(root.left);
+            console.log(root.value);
+            this.inOrder(root.right);
+        }
+    }
+
+    postOrder(root) {
+        if (root) {
+            this.postOrder(root.left);
+            this.postOrder(root.right);
+            console.log(root.value);
         }
     }
 }
@@ -75,6 +99,9 @@ console.log('Is tree empty? ', bst.isEmpty());
 bst.insert(10)
 bst.insert(5)
 bst.insert(15)
+bst.insert(3)
+bst.insert(7)
+
 
 /* `bst.search(bst.root, 10)` is searching for a node with a value of 10 in the binary search tree represented by the `bst` object. It starts the search from the root node of the tree, which is accessed using `bst.root`. If a node with the value of 10 is found in the tree, the method returns `true`, otherwise it returns `false`. */
 console.log('is node in bst? ', bst.search(bst.root, 10))
@@ -84,3 +111,27 @@ console.log('is node in bst? ', bst.search(bst.root, 5))
 console.log('is node in bst? ', bst.search(bst.root, 50))
 
 console.log('Is tree empty? ', bst.isEmpty());
+
+/* *** Depth First Search (DFS):
+There can be three types of DFS travarsal.
+1. pre order, 2. in order, 3. post order
+/* `bst.preOrder(bst.root)` is calling the `preOrder()` method of the `BinarySearchTree` class on the
+`bst` object and passing in the `root` node of the binary search tree as an argument. This method
+performs a pre-order traversal of the binary search tree, which means it visits the root node first,
+then the left subtree, and finally the right subtree. During the traversal, it logs the value of
+each node to the console. */
+bst.preOrder(bst.root)
+
+/* `bst.inOrder(bst.root)` is calling the `inOrder()` method of the `BinarySearchTree` class on the
+`bst` object and passing in the `root` node of the binary search tree as an argument. This method
+performs an in-order traversal of the binary search tree, which means it visits the left subtree
+first, then the root node, and finally the right subtree. During the traversal, it logs the value of
+each node to the console in ascending order. */
+bst.inOrder(bst.root)
+
+/* `bst.postOrder(bst.root)` is calling the `postOrder()` method of the `BinarySearchTree` class on the
+`bst` object and passing in the `root` node of the binary search tree as an argument. This method
+performs a post-order traversal of the binary search tree, which means it visits the left subtree
+first, then the right subtree, and finally the root node. During the traversal, it logs the value of
+each node to the console. */
+bst.postOrder(bst.root)
