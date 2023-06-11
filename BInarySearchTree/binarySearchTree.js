@@ -98,6 +98,23 @@ class BinarySearchTree {
             }
         }
     }
+
+    min(root) {
+        if(!root.left) {
+            return root.value;
+        } else {
+            return this.min(root.left)
+        }
+    }
+
+    max(root) {
+        if(!root.right) {
+            return root.value;
+        } else {
+            return this.max(root.right)
+        }
+    }
+
 }
 
 
@@ -120,11 +137,9 @@ bst.insert(3)
 bst.insert(7)
 
 
+
 /* `bst.search(bst.root, 10)` is searching for a node with a value of 10 in the binary search tree represented by the `bst` object. It starts the search from the root node of the tree, which is accessed using `bst.root`. If a node with the value of 10 is found in the tree, the method returns `true`, otherwise it returns `false`. */
 console.log('is node in bst? ', bst.search(bst.root, 10))
-
-console.log('is node in bst? ', bst.search(bst.root, 15))
-console.log('is node in bst? ', bst.search(bst.root, 5))
 console.log('is node in bst? ', bst.search(bst.root, 50))
 
 console.log('Is tree empty? ', bst.isEmpty());
@@ -162,3 +177,6 @@ means it visits all the nodes at each level of the tree before moving on to the 
 the traversal, it logs the value of each node to the console. */
 bst.levelOrder()
 console.log('-----levelOrder above--------------------------------');
+
+console.log('minimum value: ', bst.min(bst.root));
+console.log('maximum value: ', bst.max(bst.root));
