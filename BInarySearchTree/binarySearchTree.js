@@ -58,6 +58,7 @@ class BinarySearchTree {
         }
     }
 
+    // following 3 are for DFS
     preOrder(root) {
         if (root) {
             console.log(root.value);
@@ -79,6 +80,22 @@ class BinarySearchTree {
             this.postOrder(root.left);
             this.postOrder(root.right);
             console.log(root.value);
+        }
+    }
+
+    // BFS 
+    levelOrder() {
+        const queue = [];
+        queue.push(this.root)
+        while(queue.length) {
+            let curr = queue.shift();
+            console.log(curr.value);
+            if (curr.left) {
+                queue.push(curr.left);
+            }
+            if (curr.right) {
+                queue.push(curr.right);
+            }
         }
     }
 }
@@ -121,6 +138,7 @@ performs a pre-order traversal of the binary search tree, which means it visits 
 then the left subtree, and finally the right subtree. During the traversal, it logs the value of
 each node to the console. */
 bst.preOrder(bst.root)
+console.log('-----preOrder above--------------------------------');
 
 /* `bst.inOrder(bst.root)` is calling the `inOrder()` method of the `BinarySearchTree` class on the
 `bst` object and passing in the `root` node of the binary search tree as an argument. This method
@@ -128,6 +146,7 @@ performs an in-order traversal of the binary search tree, which means it visits 
 first, then the root node, and finally the right subtree. During the traversal, it logs the value of
 each node to the console in ascending order. */
 bst.inOrder(bst.root)
+console.log('-----inOrder above--------------------------------');
 
 /* `bst.postOrder(bst.root)` is calling the `postOrder()` method of the `BinarySearchTree` class on the
 `bst` object and passing in the `root` node of the binary search tree as an argument. This method
@@ -135,3 +154,11 @@ performs a post-order traversal of the binary search tree, which means it visits
 first, then the right subtree, and finally the root node. During the traversal, it logs the value of
 each node to the console. */
 bst.postOrder(bst.root)
+console.log('-----postOrder above--------------------------------');
+
+/* `bst.levelOrder()` is calling the `levelOrder()` method of the `BinarySearchTree` class on the `bst`
+object. This method performs a breadth-first search (BFS) traversal of the binary search tree, which
+means it visits all the nodes at each level of the tree before moving on to the next level. During
+the traversal, it logs the value of each node to the console. */
+bst.levelOrder()
+console.log('-----levelOrder above--------------------------------');
