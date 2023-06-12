@@ -28,6 +28,21 @@ class Graph {
         )
     }
 
+    removeEdge(vertex1, vertex2) {
+        this.adjacencyList[vertex1].delete(vertex2);
+        this.adjacencyList[vertex2].delete(vertex1);
+    }
+
+    removeVertex(vertex) {
+        if (!this.adjacencyList[vertex]) {
+            return
+        }
+        for (let adjacentVertex of this.adjacencyList[vertex]) {
+            this.removeEdge(vertex, adjacentVertex)
+        }
+        delete this.adjacencyList[vertex]
+    }
+
     display() {
         for (let vertex in this.adjacencyList) {
             console.log(`${vertex} --> ${[...this.adjacencyList[vertex]]}`);
@@ -63,3 +78,16 @@ vertex 'C' has vertex 'A' in its adjacency set. If both conditions are
 true, it returns `true`, indicating that there is an edge between the two
 vertices. Otherwise, it returns `false`. */
 console.log('hasEdge: ', graph.hasEdge('A','C'))
+
+/* `graph.removeEdge('A', 'B')` is removing the undirected edge between vertex 'A' and vertex 'B' in
+the graph's `adjacencyList` property. It does this by deleting each vertex from the other's
+adjacency set, indicating that they are no longer connected by an edge. */
+graph.removeEdge('A', 'B')
+
+/* `graph.removeVertex('C')` is removing the vertex with the label 'C' from the graph's `adjacencyList`
+property. It first checks if the vertex exists in the `adjacencyList`, and if so, removes all edges
+connected to it by calling `this.removeEdge(vertex, adjacentVertex)` for each adjacent vertex.
+Finally, it deletes the vertex from the `adjacencyList` using the `delete` keyword. */
+graph.removeVertex('C')
+
+graph.display();
